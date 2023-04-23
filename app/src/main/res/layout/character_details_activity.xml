@@ -4,11 +4,11 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CharacterListActivity">
-    <androidx.fragment.app.FragmentContainerView
-        android:name="com.example.rick_and_morty_character_guide.fragments.CharacterListFragment"
-        android:id="@+id/character_list_fragment"
+    tools:context=".activities.CharacterDetailsActivity">
+    <fragment
+        android:name="com.example.rick_and_morty_character_guide.fragments.CharacterDetailsFragment"
+        android:id="@+id/character_details_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/character_list_fragment"/>
+        tools:layout="@layout/character_details_fragment"/>
 </FrameLayout>

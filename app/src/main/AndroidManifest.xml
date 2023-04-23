@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RickAndMortyCharacterGuide"
         tools:targetApi="31">
-        <activity android:name=".activities.CharacterDetailsActivity" />
         <activity android:name=".activities.CharacterListActivity"
             android:exported="true">
             <intent-filter>
@@ -20,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activities.CharacterDetailsActivity" />
     </application>
 
 </manifest>
