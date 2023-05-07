@@ -1,5 +1,6 @@
 package com.example.rick_and_morty_character_guide.models
 
+
 data class Character(val id: Int,
                      val name: String,
                      val status: String,
@@ -16,3 +17,5 @@ data class Location(val name: String)
 data class Info(val count: Int, val pages: Int, val next: String, val prev: String)
 
 data class CharacterResult(val info: Info, val results: List<Character>)
+
+data class CharacterElement(val index: Int, val name: String, val url: String)

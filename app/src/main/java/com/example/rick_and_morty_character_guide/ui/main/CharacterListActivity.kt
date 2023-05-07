@@ -1,25 +1,27 @@
-package com.example.rick_and_morty_character_guide.activities
+package com.example.rick_and_morty_character_guide.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rick_and_morty_character_guide.R
-import com.example.rick_and_morty_character_guide.fragments.CharacterListFragment
-import com.example.rick_and_morty_character_guide.models.CharacterResult
-import com.example.rick_and_morty_character_guide.network.CharacterService
+import com.example.rick_and_morty_character_guide.ui.main.CharacterListFragment
+import com.example.rick_and_morty_character_guide.persistence.CharacterDao
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class CharacterListActivity : AppCompatActivity() {
-//    @Inject
-//    lateinit var characterResult: CharacterResult
+    @Inject
+    lateinit var characterDao: CharacterDao
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.character_list_activity)
+
+        characterDao.getAllCharacters()
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, CharacterListFragment.newInstance())
                 .commitNow()
         }
-//        val results = characterResult.results
-//        val a = 1
     }
 }

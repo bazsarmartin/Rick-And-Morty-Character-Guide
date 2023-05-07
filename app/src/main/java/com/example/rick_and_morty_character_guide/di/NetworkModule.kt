@@ -1,5 +1,6 @@
-package com.example.rick_and_morty_character_guide.network
+package com.example.rick_and_morty_character_guide.di
 
+import com.example.rick_and_morty_character_guide.network.CharacterInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class CharacterService {
+object NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
@@ -30,7 +31,7 @@ class CharacterService {
 
     @Provides
     @Singleton
-    fun provideCharacterApi(retrofit: Retrofit): CharacterInterface {
+    fun provideCharacterInterface(retrofit: Retrofit): CharacterInterface {
         return retrofit.create(CharacterInterface::class.java)
     }
 }
