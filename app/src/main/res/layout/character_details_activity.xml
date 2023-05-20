@@ -4,11 +4,5 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.details.CharacterDetailsActivity">
-    <fragment
-        android:name="com.example.rick_and_morty_character_guide.ui.details.CharacterDetailsFragment"
-        android:id="@+id/character_details_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/character_details_fragment"/>
+    tools:context=".ui.details.CharacterDetails">
 </FrameLayout>
