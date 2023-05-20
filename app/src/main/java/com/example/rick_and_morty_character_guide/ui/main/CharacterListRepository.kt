@@ -6,8 +6,8 @@ import com.example.rick_and_morty_character_guide.persistence.CharacterDao
 import javax.inject.Inject
 
 class CharacterListRepository @Inject constructor(private val characterInterface: CharacterInterface) {
-    suspend fun getCharacters():List<Character> {
-        var characters=characterInterface.getAllCharactersData()
+    suspend fun getCharacters(page: Int):List<Character> {
+        var characters=characterInterface.getAllCharactersData(page)
         return characters.results
     }
 }
