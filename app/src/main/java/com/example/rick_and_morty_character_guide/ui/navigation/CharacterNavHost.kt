@@ -25,7 +25,6 @@ fun CharacterNavHost(
     ) {
         composable("mainlist") { ListCharacters(navController=navController) }
         composable("favouriteslist") { ListFavourites(navController = navController) }
-//        composable("about") {CityListScreen(navController = navController)}
         composable("details/{characterid}",
             arguments = listOf(
                 navArgument("characterid"){type = NavType.IntType}
