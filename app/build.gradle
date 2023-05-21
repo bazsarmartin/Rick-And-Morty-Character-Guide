@@ -88,4 +88,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    //Coil
+    implementation "io.coil-kt:coil-compose:2.1.0"
+    //Paging 3.0
+    implementation 'androidx.paging:paging-compose:1.0.0-alpha10'
 }
