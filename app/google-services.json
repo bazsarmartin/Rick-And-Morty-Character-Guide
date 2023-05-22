@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "980121244120",
+    "project_id": "rick-and-morty-character-guide",
+    "storage_bucket": "rick-and-morty-character-guide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980121244120:android:6cafdb0707e0b90e2ce2ad",
+        "android_client_info": {
+          "package_name": "com.example.rick_and_morty_character_guide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980121244120-cin0su4b1i2e73c6o7kilvgasceufntg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1PTqXIgaRAlqPWTKSzTOoQsAdAZGbXxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980121244120-cin0su4b1i2e73c6o7kilvgasceufntg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

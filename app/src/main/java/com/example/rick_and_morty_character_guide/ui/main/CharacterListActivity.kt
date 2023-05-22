@@ -21,10 +21,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -37,11 +39,16 @@ import coil.compose.AsyncImage
 import com.example.rick_and_morty_character_guide.models.Character
 import com.example.rick_and_morty_character_guide.ui.navigation.CharacterNavHost
 import com.example.rick_and_morty_character_guide.ui.theme.RickAndMortyCharacterGuideTheme
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CharacterListActivity : ComponentActivity() {
+    private lateinit var analytics: FirebaseAnalytics
     override fun onCreate(savedInstanceState: Bundle?) {
+        analytics = Firebase.analytics
         super.onCreate(savedInstanceState)
         setContent {
             RickAndMortyCharacterGuideTheme {
@@ -58,6 +65,14 @@ class CharacterListActivity : ComponentActivity() {
 }
 
 @Composable
+fun TrackEvent(event: String) {
+    val context = LocalContext.current
+    val firebaseAnalytics = remember { Firebase.analytics }
+
+    firebaseAnalytics.logEvent(event, null)
+}
+
+@Composable
 fun ListCharacters(modifier: Modifier = Modifier, characterListViewModel: CharacterListViewModel= hiltViewModel(), navController: NavController) {
     when (characterListViewModel.uiState) {
         is MainUIState.Loading -> LoadingScreen(modifier)
@@ -69,6 +84,7 @@ fun ListCharacters(modifier: Modifier = Modifier, characterListViewModel: Charac
 
 @Composable
 fun SuccessScreen(modifier: Modifier = Modifier, characterList: LazyPagingItems<Character>, navController: NavController) {
+    TrackEvent(event = "Characters listed.")
     Column() {
         Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
             Text(
@@ -79,6 +95,10 @@ fun SuccessScreen(modifier: Modifier = Modifier, characterList: LazyPagingItems<
             Button(onClick = { navController.navigate("favouriteslist") },
                 Modifier.padding(20.dp)) {
                 Text(text = "Favourites")
+            }
+            Button(onClick = { throw RuntimeException("Test Crash") },
+                Modifier.padding(20.dp)) {
+                Text(text = "Test Crash")
             }
         }
         LazyColumn{
